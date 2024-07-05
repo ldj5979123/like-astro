@@ -1,10 +1,12 @@
 ---
 const pageTitle = "关于页"
-const teamMembers = [
-  { name: 'Alice', role: 'Developer' },
-  { name: 'Bob', role: 'Designer' },
-  { name: 'Charlie', role: 'Manager' }
-];
+const identity = {
+  "name": "大军",
+  "occupation": "学生",
+  "hobbies": ["健身", "美食"]
+}
+
+const skills = ["HTML", "CSS", "JS", "Astro"];
 ---
 
 <html lang="en">
@@ -14,6 +16,17 @@ const teamMembers = [
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>和大军一起学习 - {pageTitle}</title>
+		<style>
+			h1 {
+			  font-size: 2.5rem;
+			  margin-bottom: 0.5rem;
+			  color: #eb4f11;
+			}
+			.skill {
+			  font-size: 1.25rem;
+			  color: #3f14da;
+			}
+		  </style>
 	</head>
 	<body>
 		<a href="/">首页</a>
@@ -21,6 +34,12 @@ const teamMembers = [
 		<a href="/blog">博客</a>
 		<h1>{pageTitle}</h1>
 		<h2>我的信息</h2>
-
+		<p>我的名字：{identity.name}</p>
+		<p>我是一名：{identity.occupation}</p>
+		<p>我的爱好之一是{identity.hobbies[0]}</p>
+		<h2>我的技术栈</h2>
+		<ul>
+			{skills.map((skill) => <li class="skill">{skill}</li>)}
+		</ul>
 	</body>
 </html>
